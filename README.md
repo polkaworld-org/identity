@@ -2,6 +2,23 @@
 
 A new SRML-based Substrate node, ready for hacking.
 
+# Design
+
+# Impl
+
+## Modules
+
+### balances
+1. transfer
+
+### name_service
+1. register
+2. resolver
+
+### permission
+1. authorization
+
+
 # Building
 
 Install Rust:
