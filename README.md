@@ -1,21 +1,94 @@
 # identity
 
-A new SRML-based Substrate node, ready for hacking.
+Substrate-based Onchain Identity and Access Management.
 
 # Design
 
-# Impl
+## Principles
+
+ Human readable identifiers as first class citizens, making self-soveriegn-identity come true.
 
 ## Modules
 
-### balances
-1. transfer
+### univesal_name_service
 
-### name_service
-1. register
-2. resolver
+ Decouple human readable identifiers from low-level interpretor, by using universal_register, universal_resolver
 
-### permission
+1. datatype
+    1. identifier: asRef&lt;u8&gt;
+        
+        eg. helloworld.id, transfer.helloworld.id, approver.helloworld.id, wallet.eth, file.ipfs, etc.
+
+    2. register: Trait
+        
+        eg. identity.register, authorization.identitfy.register, profile.identify.register
+ 
+    3. resolver: Trait
+
+        eg. identity.resolver, authorization.identitfy.resolver, profile.identify.resolver,  eth.resolver, ipfs.resolver
+
+2. storage
+    1. map: identifier => resolversArray
+
+3. event
+
+    1. IdentityRegistered
+
+4. module
+    1. register
+    2. resolver
+
+### identity (as a resolver)
+
+1. datatype
+    1. identifier: asRef&lt;u8&gt;
+    2. role struct {threshold, keysArray, permissionsArray}
+    
+        struct {
+            threshold: 2;
+            keys: [
+                {key: key1, weight: 1},
+                {key: key2, weight: 1},
+                {key: key3, weight: 1},
+            ],
+            roles: [
+                {role: role1, weight: 1},
+                {role: role2, weight: 1},
+            ]
+        }
+
+    3. resource: module
+    4. actions: function
+
+2. storage
+    1. Role: map: identifier -> role;
+    2. Permissions: identifer -> grantArray
+
+3. event
+    1. RoleRegistered
+    2. RoleUpdated
+    3. PerimissionGranted
+    4. PermissionRevoked
+
+4. module
+    1. register_role
+    2. update_role
+    3. grant_permission
+    4. revoke_permission
+    5. check_permission
+
+### balancex
+1. datatype
+
+2. storage
+
+3. event
+
+4. module
+
+
+
+### authorization
 1. authorization
 
 
