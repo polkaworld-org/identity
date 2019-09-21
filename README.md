@@ -17,15 +17,21 @@ Substrate-based Onchain Identity and Access Management.
 1. datatype
     1. identifier: asRef&lt;u8&gt;
         
+        ``` 
         eg. helloworld.id, transfer.helloworld.id, approver.helloworld.id, wallet.eth, file.ipfs, etc.
+        ``` 
 
     2. register: Trait
         
+        ``` 
         eg. identity.register, authorization.identitfy.register, profile.identify.register
+        ``` 
  
     3. resolver: Trait
 
+        ``` 
         eg. identity.resolver, authorization.identitfy.resolver, profile.identify.resolver,  eth.resolver, ipfs.resolver
+        ``` 
 
 2. storage
     1. map: identifier => resolversArray
@@ -43,7 +49,8 @@ Substrate-based Onchain Identity and Access Management.
 1. datatype
     1. identifier: asRef&lt;u8&gt;
     2. role struct {threshold, keysArray, permissionsArray}
-    
+        
+        ``` 
         struct {
             threshold: 2;
             keys: [
@@ -56,6 +63,7 @@ Substrate-based Onchain Identity and Access Management.
                 {role: role2, weight: 1},
             ]
         }
+        ``` 
 
     3. resource: module
     4. actions: function
