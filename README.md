@@ -86,6 +86,7 @@ Substrate-based Onchain Identity and Access Management.
     5. check_permission
 
 ### balancex
+
 1. datatype
 
 2. storage
